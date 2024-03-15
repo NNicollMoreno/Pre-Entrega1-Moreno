@@ -1,0 +1,49 @@
+#root {
+  max-width: 1280px;
+  text-align: center;
+  font-family: Montserrat;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.cart-widget-container {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-icon {
+  font-size: 24px;
+}
+
+.cart-items {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-family: Montserrat;
+}
+
+.modal-content {
+  padding-left: 40px;
+  padding-top: 170%;
+  font-family: Montserrat;
+}
+
+button:hover {
+  background-color: #646cff;
+  color: white;
+}
