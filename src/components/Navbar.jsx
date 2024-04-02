@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import CartWidget from "./CartWidget.jsx";
 import ItemListContainer from "./ItemListContainer.jsx";
+import ItemListContainer from "./ItemListCards.jsx";
 
 function NavigationBar() {
   const [showModal, setShowModal] = useState(false);
