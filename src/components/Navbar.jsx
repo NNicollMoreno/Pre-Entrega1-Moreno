@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import CartWidget from "./CartWidget.jsx";
 import ItemListContainer from "./ItemListContainer.jsx";
-import ItemListContainer from "./ItemListCards.jsx";
+import logo from "../../img/Recurso 151l1.png";
 
 function NavigationBar() {
   const [showModal, setShowModal] = useState(false);
@@ -15,10 +15,15 @@ function NavigationBar() {
     <>
       <Navbar
         expand="lg"
-        style={{ position: "absolute", top: 0, left: 0, width: "100%" }}
+        className="mx-auto"
+        style={{ alignItems: "center", width: "100%" }}
       >
         <Navbar.Brand href="#home" style={{ fontWeight: "bold" }}>
-          Amai Pastry Shop
+          <img
+            src={logo}
+            alt="logo"
+            style={{ width: "10%", height: "10%", padding: "10px" }}
+          />
         </Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
