@@ -22,10 +22,8 @@ function ItemListContainer({ greeting, show, onClose }) {
 export default ItemListContainer;*/
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Card, Button } from "react-bootstrap";
-import { getFirestore, getDocs, collection } from "firebase/firestore";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { ItemListCards } from "./ItemListCards";
-import React from "react";
 
 export const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
@@ -34,8 +32,8 @@ export const ItemListContainer = () => {
   useEffect(() => {
     const fetchData = async () => {
       const db = getFirestore();
-      const refCollection = collection(db, "items");
-      const querySnapshot = await getDocs(refCollection);
+      const itemsCollection = collection(db, "items");
+      const querySnapshot = await getDocs(itemsCollection);
       const productosData = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),

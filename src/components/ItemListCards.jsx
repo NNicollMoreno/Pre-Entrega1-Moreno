@@ -69,18 +69,25 @@ const ItemListCards = ({ greeting }) => {
 
 export default ItemListCards;*/
 
-export const ItemListCards = ({ producto }) => (
-  <Card style={{ width: "18rem" }}>
-    <Card.Img variant="top" src={producto.imageId} />
-    <Card.Body>
-      <Card.Title>{producto.title}</Card.Title>
-      <Card.Text>{producto.description}</Card.Text>
-      <Card.Text>{producto.categoryId}</Card.Text>
-      <Link to={`/item/${producto.id}`}>
-        <Button variant="primary">Go Somewhere</Button>
-      </Link>
-    </Card.Body>
-  </Card>
-);
+export const ItemListCards = ({ producto }) => {
+  // Verificar si producto es undefined o null antes de acceder a sus propiedades
+  if (!producto) {
+    return null; // O manejar el caso de objeto faltante de alguna otra manera
+  }
+
+  return (
+    <Card style={{ width: "18rem" }}>
+      <Card.Img variant="top" src={producto.imageId} />
+      <Card.Body>
+        <Card.Title>{producto.title}</Card.Title>
+        <Card.Text>{producto.description}</Card.Text>
+        <Card.Text>{producto.categoryId}</Card.Text>
+        <Link to={`/item/${producto.id}`}>
+          <Button variant="primary">Go Somewhere</Button>
+        </Link>
+      </Card.Body>
+    </Card>
+  );
+};
 
 export default ItemListCards;
