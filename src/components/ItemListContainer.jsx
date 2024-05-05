@@ -24,7 +24,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 import { getFirestore, getDocs, collection } from "firebase/firestore";
-import { Item } from "./Item";
+import { ItemListCards } from "./ItemListCards"; // Importa el componente ItemListCards correctamente
 
 export const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
@@ -48,7 +48,7 @@ export const ItemListContainer = () => {
   return (
     <div>
       {productos.map((producto) => (
-        <Item key={producto.id} producto={producto} />
+        <ItemListCards key={producto.id} producto={producto} />
       ))}
     </div>
   );
