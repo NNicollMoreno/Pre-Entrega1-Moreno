@@ -1,3 +1,4 @@
+import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 /*import { useNavigate } from "react-router-dom";
@@ -68,7 +69,7 @@ const ItemListCards = ({ greeting }) => {
 
 export default ItemListCards;*/
 
-export const Item = ({ producto }) => (
+export const ItemListCards = ({ producto }) => (
   <Card style={{ width: "18rem" }}>
     <Card.Img variant="top" src={producto.imageId} />
     <Card.Body>
@@ -81,3 +82,5 @@ export const Item = ({ producto }) => (
     </Card.Body>
   </Card>
 );
+
+export default ItemListCards;

@@ -24,7 +24,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 import { getFirestore, getDocs, collection } from "firebase/firestore";
-import { ItemListCards } from "./ItemListCards"; // Importa el componente ItemListCards correctamente
+import { ItemListCards } from "./ItemListCards";
+import React from "react";
 
 export const ItemListContainer = () => {
   const [productos, setProductos] = useState([]);
@@ -53,3 +54,5 @@ export const ItemListContainer = () => {
     </div>
   );
 };
+
+export default ItemListContainer;
