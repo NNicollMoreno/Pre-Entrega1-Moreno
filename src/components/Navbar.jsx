@@ -1,16 +1,10 @@
 import React, { useState } from "react";
-import { Navbar, Nav, Button } from "react-bootstrap";
-import CartWidget from "./CartWidget.jsx";
-import ItemListContainer from "./ItemListContainer.jsx";
+import { Navbar, Nav, Button, NavLink } from "react-bootstrap";
+import CartWidget from "./CartWidget";
+import ItemListContainer from "./ItemListContainer";
 import logo from "../../img/Recurso 151l1.png";
 
 function NavigationBar() {
-  const [showModal, setShowModal] = useState(false);
-
-  const toggleModal = () => {
-    setShowModal(!showModal);
-  };
-
   return (
     <>
       <Navbar
@@ -27,23 +21,35 @@ function NavigationBar() {
         </Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Button variant="outline-secondary" style={{ marginRight: "10px" }}>
-              Inicio
-            </Button>
-            <Button variant="outline-secondary" style={{ marginRight: "10px" }}>
-              Sobre Nosotros
-            </Button>
-            <Button variant="outline-secondary" style={{ marginRight: "10px" }}>
-              Productos
-            </Button>
-            <Button variant="outline-secondary" style={{ marginRight: "10px" }}>
-              Contacto
-            </Button>
+            <NavLink to="#home">
+              <Button
+                variant="outline-secondary"
+                style={{ marginRight: "10px" }}
+              >
+                Inicio
+              </Button>
+            </NavLink>
+            <NavLink to="category/pie" as={NavLink}>
+              <Button
+                variant="outline-secondary"
+                style={{ marginRight: "10px" }}
+              >
+                Pie
+              </Button>
+            </NavLink>
+            <NavLink to="category/Torta" as={NavLink}>
+              <Button
+                variant="outline-secondary"
+                style={{ marginRight: "10px" }}
+              >
+                Torta
+              </Button>
+            </NavLink>
             <CartWidget />
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-      {showModal && <ItemListContainer onClose={toggleModal} />}
+      <ItemListContainer />
     </>
   );
 }

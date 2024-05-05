@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import { Modal, Button } from "react-bootstrap";
 
 function ItemListContainer({ greeting, show, onClose }) {
@@ -19,4 +19,37 @@ function ItemListContainer({ greeting, show, onClose }) {
   );
 }
 
-export default ItemListContainer;
+export default ItemListContainer;*/
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { Card, Button } from "react-bootstrap";
+import { getFirestore, getDocs, collection } from "firebase/firestore";
+import { Item } from "./Item";
+
+export const ItemListContainer = () => {
+  const [productos, setProductos] = useState([]);
+  const { id } = useParams();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const db = getFirestore();
+      const refCollection = collection(db, "items");
+      const querySnapshot = await getDocs(refCollection);
+      const productosData = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setProductos(productosData);
+    };
+
+    fetchData();
+  }, []);
+
+  return (
+    <div>
+      {productos.map((producto) => (
+        <Item key={producto.id} producto={producto} />
+      ))}
+    </div>
+  );
+};

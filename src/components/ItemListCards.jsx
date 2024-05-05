@@ -1,5 +1,6 @@
 import { Card, Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+/*import { useNavigate } from "react-router-dom";
 
 const ItemListCards = ({ greeting }) => {
   const navigate = useNavigate();
@@ -65,4 +66,18 @@ const ItemListCards = ({ greeting }) => {
   );
 };
 
-export default ItemListCards;
+export default ItemListCards;*/
+
+export const Item = ({ producto }) => (
+  <Card style={{ width: "18rem" }}>
+    <Card.Img variant="top" src={producto.imageId} />
+    <Card.Body>
+      <Card.Title>{producto.title}</Card.Title>
+      <Card.Text>{producto.description}</Card.Text>
+      <Card.Text>{producto.categoryId}</Card.Text>
+      <Link to={`/item/${producto.id}`}>
+        <Button variant="primary">Go Somewhere</Button>
+      </Link>
+    </Card.Body>
+  </Card>
+);
